@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PageTile extends StatelessWidget {
-  PageTile({Key? key,
+  const PageTile({Key? key,
    this.labal,
    this.iconData,
    this.ontap,

@@ -14,8 +14,8 @@ class CustomDrawer extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.65,
         child: Drawer(
           child: ListView(
-            children: const[
-              CustomDrawerHeader(),
+            children: [
+              const CustomDrawerHeader(),
               PageSection(),
             ],
           ),
