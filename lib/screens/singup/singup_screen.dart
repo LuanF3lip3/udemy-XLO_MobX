@@ -53,22 +53,30 @@ class SingupScreen extends StatelessWidget {
                   title: 'E-mail',
                   subtitle: '',
                 ),
-                const TextField(
+                 Observer(
+                   builder: (_){
+                   return TextField(
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     hintText: 'EX: Maria@gmail.com',
                     isDense: true,
+                    errorText: signupStore.emailError,
                   ),
+                  onChanged: signupStore.setEmail,
                   keyboardType: TextInputType.emailAddress,
-                ),
+                );
+                 }),
                 const SizedBox(height: 12,),
                 const FieldTitle(
                   title: 'Celular',
                   subtitle: '',
                 ),
-                TextField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                Observer(builder: (_){
+                  return TextField(
+                  onChanged: signupStore.setPhone,
+                  decoration: InputDecoration(
+                    errorText: signupStore.phoneError,
+                    border: const OutlineInputBorder(),
                     hintText: 'EX: (99) 99999-9999',
                     isDense: true,
                     
@@ -78,7 +86,8 @@ class SingupScreen extends StatelessWidget {
                     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                     TelefoneInputFormatter(),
                   ],
-                ),
+                );
+                }),
                 const SizedBox(height: 12,),
                 const FieldTitle(
                   title: 'Senha',
